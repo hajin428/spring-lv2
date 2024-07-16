@@ -9,12 +9,11 @@ import java.util.Date;
 public class Loan {
 
     @Id
-    private String id;
+    private String loanId;
     private String bookId;
     private String memberId;
-    private boolean Returned;
+    private boolean returned;
     private Date loanDate;
     private Date returnDate;
-
 
 }

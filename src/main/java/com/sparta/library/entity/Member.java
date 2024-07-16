@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class Member {
 
     @Id
-    private String id;
+    private String memberId;
 
     private String name;
 
