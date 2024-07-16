@@ -1,5 +1,7 @@
 package com.sparta.library.dto;
 
+import com.sparta.library.entity.Member;
+
 public class MemberResponseDto {
     private Long memberId;
     private String name;
@@ -7,12 +9,19 @@ public class MemberResponseDto {
     private String phoneNumber;
     private String address;
 
-    public MemberResponseDto(Long id, String name, String gender, String phoneNumber, String address) {
-        this.memberId = memberId;
-        this.name = name;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
+//    public MemberResponseDto(Long id, String name, String gender, String phoneNumber, String address) {
+//        this.memberId = memberId;
+//        this.name = name;
+//        this.gender = gender;
+//        this.phoneNumber = phoneNumber;
+//        this.address = address;
+//    }
+
+    public MemberResponseDto(Member member) {
+        this.name = member.getName();
+        this.gender = member.getGender();
+        this.phoneNumber = member.getPhoneNumber();
+        this.address = member.getAddress();
     }
 
 
