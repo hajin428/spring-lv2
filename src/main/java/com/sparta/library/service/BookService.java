@@ -3,6 +3,7 @@ package com.sparta.library.service;
 import com.sparta.library.dto.AllBookResponseDto;
 import com.sparta.library.dto.BookRequestDto;
 import com.sparta.library.dto.BookResponseDto;
+import com.sparta.library.dto.SelectResponseDto;
 import com.sparta.library.entity.Book;
 import com.sparta.library.repository.BookRepository;
 import org.springframework.stereotype.Service;
@@ -55,12 +56,12 @@ public class BookService {
 
     //도서 선택 조회
     //Long bookId를 파라미터로 받아서 실행하는 메서드 정의
-    public BookResponseDto getBookById(Long bookId) {
+    public SelectResponseDto getBookById(Long bookId) {
 
         Book book = bookRepository.findById(bookId).orElseThrow(() ->
                 new IllegalArgumentException("찾으시는 자료가 없습니다."));
 
-        return new BookResponseDto(book);
+        return new SelectResponseDto(book);
     }
 
 
