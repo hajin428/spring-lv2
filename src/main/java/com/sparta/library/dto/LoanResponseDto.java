@@ -1,15 +1,53 @@
 package com.sparta.library.dto;
 
+import com.sparta.library.entity.Loan;
+
 import java.util.Date;
 
 public class LoanResponseDto {
 
-    private String loanId;
-    private String BookId;
-    private String memberId;
+    private Long loanId;
+    private Long bookId;
+    private Long memberId;
     private boolean returned;
-    private Date returnedDate;
     private Date loanDate;
+    private Date returnDate;
 
-    //반납상태 http status,,
+
+
+
+    public LoanResponseDto(Loan loan) {
+        this.loanId = loan.getLoanId();
+        this.bookId = loan.getBookId();
+        this.memberId = loan.getMemberId();
+        this.returned = loan.isReturned();
+        this.loanDate = loan.getLoanDate();
+        this.returnDate = loan.getReturnDate();
+    }
+
+
+    public Long getLoanId() {
+        return loanId;
+    }
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public Long getMemberId() {
+        return memberId;
+    }
+
+    public boolean isReturned() {
+        return returned;
+    }
+
+    public Date getLoanDate() {
+        return loanDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
 }

@@ -2,14 +2,21 @@ package com.sparta.library.dto;
 
 public class LoanRequestDto {
 
-    private String bookId;
-    private String memberId;
+    private Long bookId;
+    private Long memberId;
 
-    public String getBookId() {
+
+
+    public LoanRequestDto(Long bookId, Long memberId) {
+        this.bookId = bookId;
+        this.memberId = memberId;
+    }
+
+    public Long getBookId() {
         return bookId;
     }
 
-    public String getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 }

@@ -17,11 +17,17 @@ public class Book {
     private Long bookId;
 
     private String title;
+
     private String author;
+
     private String language;
+
     private String publisher;
+
     private Date registrationDate;
+
     private boolean Loaned;
+
 
     public Book(BookRequestDto bookRequestDto) {
         this.title = bookRequestDto.getTitle();
@@ -30,7 +36,26 @@ public class Book {
         this.publisher = bookRequestDto.getPublisher();
     }
 
-
     public Book() {}
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
 }
 

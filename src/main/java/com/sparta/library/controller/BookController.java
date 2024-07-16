@@ -29,11 +29,13 @@ public class BookController {
         return bookService.createBook(bookrequestDto);
     }
 
+
     //도서 목록 전체 조회
     @GetMapping ("/list")
     public List<AllBookResponseDto> findAll() {
         return bookService.getFindAll();
     }
+
 
     //게시글 선택 조회
     @GetMapping("/{id}")
