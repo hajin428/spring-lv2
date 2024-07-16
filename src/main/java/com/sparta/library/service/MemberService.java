@@ -17,7 +17,7 @@ public class MemberService {
     }
 
     //회원 등록
-    public MemberResponseDto createMember(MemberRequestDto memberRequestDto) {
+    public MemberResponseDto signMember(MemberRequestDto memberRequestDto) {
         //Book 엔티티에 bookRequestDto를 넣어줌
         Member member = new Member(memberRequestDto);
         //레포지토리에서 save 메서드 실행
