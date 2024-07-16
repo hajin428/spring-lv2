@@ -9,13 +9,6 @@ public class MemberResponseDto {
     private String phoneNumber;
     private String address;
 
-//    public MemberResponseDto(Long id, String name, String gender, String phoneNumber, String address) {
-//        this.memberId = memberId;
-//        this.name = name;
-//        this.gender = gender;
-//        this.phoneNumber = phoneNumber;
-//        this.address = address;
-//    }
 
     public MemberResponseDto(Member member) {
         this.name = member.getName();
@@ -23,7 +16,6 @@ public class MemberResponseDto {
         this.phoneNumber = member.getPhoneNumber();
         this.address = member.getAddress();
     }
-
 
 
     public Long getMemberId() {

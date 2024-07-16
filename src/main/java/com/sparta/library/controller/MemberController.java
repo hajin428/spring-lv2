@@ -19,11 +19,9 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-
-    @PostMapping ("/member")
-    //요청된 json 타입의 body 데이터를 BookRequestDto 객체로 받아서 변환하여 받음
-    public MemberResponseDto createMember(@RequestBody MemberRequestDto memberRequestDto) {
-        //bookService 클래스의 createBook 메서드를 실행한 후 BookResponse 객체로 반환
+    //회원 가입
+    @PostMapping ("/sign")
+    public MemberResponseDto signMember(@RequestBody MemberRequestDto memberRequestDto) {
         return memberService.signMember(memberRequestDto);
     }
 }

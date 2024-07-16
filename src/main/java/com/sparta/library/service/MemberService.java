@@ -16,11 +16,9 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    //회원 등록
+    //회원 가입
     public MemberResponseDto signMember(MemberRequestDto memberRequestDto) {
-        //Book 엔티티에 bookRequestDto를 넣어줌
         Member member = new Member(memberRequestDto);
-        //레포지토리에서 save 메서드 실행
         memberRepository.save(member);
         MemberResponseDto memberResponseDto = new MemberResponseDto(member);
         return memberResponseDto;
