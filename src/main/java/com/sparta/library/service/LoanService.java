@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class LoanService {
@@ -84,15 +83,20 @@ public class LoanService {
     //대출 내역 조회
     public List<LoanResponseDto> getLoanHistory(Long memberId) {
 
-
+        //findById 메서드를 사용해서 오름차순으로 loan 엔티티 목록 조회
         List<Loan> loans = loanRepository.findByMemberIdOrderByLoanDateAsc(memberId);
-        List<LoanResponseDto> result = new ArrayList<>();
 
+        //LoanResponseDto 객체를 담을 리스트 생성
+        List<LoanResponseDto> loanHistory = new ArrayList<>();
+
+        //for문으로 loans 리스트에 담긴 엔티티 객체들을 responseDto로 변환해서 리스트에 추가해줌
         for (Loan loan : loans) {
-            LoanResponseDto dto = new LoanResponseDto(loan);
-            result.add(dto);
+            LoanResponseDto loanResponseDto = new LoanResponseDto(loan);
+            //loanHistory 리스트에 추가
+            loanHistory.add(loanResponseDto);
         }
 
-        return result;
+        //loanHistory 리스트 반환
+        return loanHistory;
     }
 }
