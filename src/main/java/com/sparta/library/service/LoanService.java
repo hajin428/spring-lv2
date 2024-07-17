@@ -28,26 +28,27 @@ public class LoanService {
     }
 
 
+
     //선택 도서 대출
     //에러 메세지 반환해야 되기 때문에 반환값 String
     public String createLoan(LoanRequestDto loanRequestDto) {
         Long bookId = loanRequestDto.getBookId();
         Long memberId = loanRequestDto.getMemberId();
 
-        //.existsBy : JPA 조건 조회 메서드
-        //도서 식별값으로 returned 변수가 false인지 조회 (입력값 bookId)
+        //.existsBy : 특정 조건에 맞는 엔티티가 존재하는지 확인하는 조건 조회 JPA 메서드
+        //도서 식별값으로 조회된 엔티티가 존재하고, returned 속성이 false 상태인지 조회 (입력값 bookId)
         if (loanRepository.existsByBookIdAndReturnedFalse(bookId)) {
             return "도서가 이미 대출 중입니다."; //false일 때(대출 중일 떄) 반환 될 메세지
         }
 
-        //회원 식별값으로 returned가 false인지 조회 (입력값 memberId)
+        //회원 식별값으로 returned가 false인지 조회
         if (loanRepository.existsByMemberIdAndReturnedFalse(memberId)) {
             return "반납하지 않은 책이 있습니다."; //false일 때 메세지
         }
 
         //도서 식별값과 회원 식별값으로 Loan 객체 생성
         Loan loan = new Loan(bookId, memberId);
-        //레포지토리에 저장
+        //레포지토리에 저장 (save 메서드)
         loanRepository.save(loan);
 
         //위의 조건에 다 부합하지 않을 때 나올 메세지(도서 대출중x, 반납 안 한 도서x)
@@ -63,7 +64,7 @@ public class LoanService {
         Optional<Loan> optionalLoan = loanRepository.findById(loanId);
 
         //optionalLoan.isPresent(): 조회된 optional 객체에 값이 존재하는지 확인
-        //앞에 ! <- 존재하지 않으면 반환
+        //앞에 ! <- 존재하지 않으면
         if (!optionalLoan.isPresent()) {
             return "대출 기록을 찾을 수 없습니다.";
         }

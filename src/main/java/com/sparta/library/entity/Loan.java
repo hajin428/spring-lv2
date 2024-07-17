@@ -12,21 +12,22 @@ public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long loanId;
+    private Long loanId; //대출 식별값
 
-    private Long bookId;
+    private Long bookId; //도서 식별값
 
-    private Long memberId;
+    private Long memberId; //회원 식별값
 
-    private boolean returned;
+    private boolean returned; //대출 상태
 
-    private Date loanDate;
+    private Date loanDate; //대출일
 
-    private Date returnDate;
+    private Date returnDate; //반납일
 
 
 
     public Loan(){}
+
 
     public Loan (Long bookId, Long memberId) {
         this.bookId = bookId;

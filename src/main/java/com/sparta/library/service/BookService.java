@@ -65,8 +65,11 @@ public class BookService {
     //반환값은 responseDto
     public BookSelectResponseDto getBookById(Long bookId) {
 
+        //findById; 고유 식별자를 이용해서 엔티티에서 단일 조회하는 JPA 메서드
+        //orElseThrow: 예외 발생시키는 메서드 ->예외 처리 클래스 사용
         Book book = bookRepository.findById(bookId).orElseThrow(() ->
                 new IllegalArgumentException("찾으시는 자료가 없습니다."));
+                    //IllegalArgumentException: 잘못된 인수가 전달되었음을 알리는 예외 처리 클래스
 
         return new BookSelectResponseDto(book);
     }

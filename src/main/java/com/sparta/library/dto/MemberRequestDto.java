@@ -1,11 +1,18 @@
 package com.sparta.library.dto;
 
 public class MemberRequestDto {
+    private Long memberId;
     private String name;
     private String gender;
     private String ssn;
     private String phoneNumber;
     private String address;
+
+
+
+    public  Long getMemberId() {
+        return memberId;
+    }
 
     public String getName() {
         return name;

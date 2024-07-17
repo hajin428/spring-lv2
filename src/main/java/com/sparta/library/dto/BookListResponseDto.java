@@ -16,6 +16,7 @@ public class BookListResponseDto {
     private String language;
     private String publisher;
 
+
     public BookListResponseDto(Book book) {
         this.bookId = getBookId();
         this.title = getTitle();

@@ -16,6 +16,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+
     //회원 가입
     public MemberResponseDto signMember(MemberRequestDto memberRequestDto) {
         Member member = new Member(memberRequestDto);
