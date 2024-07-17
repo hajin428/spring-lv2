@@ -3,20 +3,21 @@ package com.sparta.library.dto;
 import com.sparta.library.entity.Book;
 
 
-public class AllBookResponseDto {
+//도서 선택 조회 Dto
+public class BookSelectResponseDto {
     private Long bookId;
     private String title;
     private String author;
     private String language;
     private String publisher;
 
-    public AllBookResponseDto(Book book) {
+    public BookSelectResponseDto(Book book) {
         this.bookId = getBookId();
         this.title = getTitle();
         this.author = getAuthor();
         this.language = getLanguage();
         this.publisher = getPublisher();
-        
+
     }
 
 

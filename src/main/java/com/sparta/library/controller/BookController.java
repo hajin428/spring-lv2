@@ -1,9 +1,9 @@
 package com.sparta.library.controller;
 
-import com.sparta.library.dto.AllBookResponseDto;
+import com.sparta.library.dto.BookListResponseDto;
 import com.sparta.library.dto.BookRequestDto;
 import com.sparta.library.dto.BookResponseDto;
-import com.sparta.library.dto.SelectResponseDto;
+import com.sparta.library.dto.BookSelectResponseDto;
 import com.sparta.library.service.BookService;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,14 +32,14 @@ public class BookController {
 
     //도서 목록 전체 조회
     @GetMapping ("/list")
-    public List<AllBookResponseDto> findAll() {
+    public List<BookListResponseDto> findAll() {
         return bookService.getFindAll();
     }
 
 
     //게시글 선택 조회
     @GetMapping("/{id}")
-    public SelectResponseDto getBookById(@PathVariable Long id) {
+    public BookSelectResponseDto getBookById(@PathVariable Long id) {
         return bookService.getBookById(id);
     }
 

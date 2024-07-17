@@ -17,6 +17,6 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
     //도서 식별값으로 조건조회
     boolean existsByBookIdAndReturnedFalse(Long bookId);
 
-    //
+    //memberId로 내역 찾기
     List<Loan> findByMemberIdOrderByLoanDateAsc(Long memberId);
 }
